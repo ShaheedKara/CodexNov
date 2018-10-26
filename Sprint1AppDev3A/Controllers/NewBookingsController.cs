@@ -224,7 +224,7 @@ namespace Sprint1AppDev3A.Controllers
                 //db.NewContainers.Add(container);
                 //db.SaveChanges();
                 string neww = newBooking.testtext;
-
+                newBooking.email = User.Identity.Name;
                 neww = neww.Replace("km", "");
                 neww = neww.Replace(",", "");
                 neww = neww.Trim();

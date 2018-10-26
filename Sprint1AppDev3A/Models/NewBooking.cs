@@ -24,7 +24,7 @@ namespace Sprint1AppDev3A.Models
         [Required]
         [Display(Name = "Contact Number")]
         public string cellnum { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Email Address")]
         [DataType(DataType.EmailAddress, ErrorMessage = "E-mail is not valid")]
         public string email { get; set; }

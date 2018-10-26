@@ -14,7 +14,7 @@ namespace Sprint1AppDev3A.Models
         public int DriverId { get; set; }
         [Required]
         [Display(Name = "Id Number")]
-        [StringLength(10)]
+        [StringLength(13)]
         public string Id { get; set; }
         [Required]
         [Display(Name = "Full Name")]
@@ -24,7 +24,7 @@ namespace Sprint1AppDev3A.Models
         public string Email { get; set; }
         [Required]
         [Display(Name = "Contact Number")]
-        [StringLength(13)]
+        [StringLength(10)]
         public string contactNumber { get; set; }        
         [Display(Name = "Status")]
         public virtual List<Resource> Resources { get; set; }
