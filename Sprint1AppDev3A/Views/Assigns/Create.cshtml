@@ -1,0 +1,91 @@
+﻿@model Sprint1AppDev3A.Models.Assign
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Assign</h4>
+    <hr />
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#SizeCheck").change(function () {
+                $.get("/Assigns/CascadeTruck", { TrailerSelect: $("#SizeCheck").val() }, function (data) {
+                    $("#TrucksID").empty();
+                    $.each(data, function (index, row) {
+                        $("#TrucksID").append("<option value='" + row.TruckId + "'>" + row.reg + "</option>")
+                    });
+                });
+            });
+        });
+
+        $(document).ready(function () {
+            $("#SizeCheck").change(function () {
+                $.get("/Assigns/CascadeCont", { TrailerSelect: $("#SizeCheck").val() }, function (data) {
+                    $("#BookID").empty();
+                    $.each(data, function (index, row) {
+                        $("#BookID").append("<option value='" + row.BookingIds + "'>" + row.ConNum + "</option>")
+                    });
+                });
+            });
+        });
+    </script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+    @Html.DropDownList("SizeCheck", new SelectList(
+                 new List<Object>
+                 {
+                      new { value = "6m" , text = "6m"  },
+                      new { value = "12m" , text = "12m" }
+
+                 },
+                 "value", "text", 2))
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.BookID, "BookID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("BookID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BookID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TrucksID, "TrucksID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("TrucksID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TrucksID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DriveID, "DriveID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("DriveID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DriveID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

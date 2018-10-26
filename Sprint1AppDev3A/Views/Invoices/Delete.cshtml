@@ -1,0 +1,112 @@
+﻿@model Sprint1AppDev3A.Models.Invoice
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Invoice</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.jobId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jobId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pickup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pickup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dropoff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dropoff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vattotal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vattotal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.net)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.net)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

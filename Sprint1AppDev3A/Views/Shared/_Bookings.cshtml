@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.NewBooking>
+
+<p>  
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pickupdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cellnum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specInstruct)
+        </th>
+        <th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.pickupdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cellnum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specInstruct)
+        </td>
+        <td>
+
+        <td>
+            @Html.ActionLink("Assign", "Create","Assignmk2", new { id=item.BookingIds }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookingIds }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookingIds })
+        </td>
+    </tr>
+}
+
+</table>

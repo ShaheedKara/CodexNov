@@ -1,0 +1,66 @@
+﻿@model Sprint1AppDev3A.Models.maintain
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>maintain</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TruckId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TruckId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrailerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrailerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaintainDes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaintainDes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaintainPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaintainPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MTechnician)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MTechnician)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaintainID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

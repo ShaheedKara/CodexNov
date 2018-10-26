@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.Expense>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<a href="~/Views/Expenses/Index.cshtml">~/Views/Expenses/Index.cshtml</a>
+
+<h2>Quotes</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RFQs.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FuelPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Markup)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Final)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RFQs.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Distance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FuelPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Markup)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Final)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.QuoteID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.QuoteID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.QuoteID })
+        </td>
+    </tr>
+}
+
+</table>

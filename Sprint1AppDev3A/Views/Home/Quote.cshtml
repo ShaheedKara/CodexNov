@@ -1,0 +1,175 @@
+﻿
+@{
+//Layout = null;
+}
+
+<div>
+    <div>
+        Travel To : <input id="Collection" type="text" name="name" />
+        <input id="Dropoff" type="text" name="name" value="Coastlands Durban Pty Ltd, Doctor Pixley Kaseme Street, Durban, South Africa" readonly hidden />
+        <br /><br><br />
+        <b>Depots:  </b> <br>
+
+        <select multiple id="Dropoff">
+            <option value="Umbilo, durban">Umbilo</option>
+            <option value="phoenix, durban">Phoenix</option>
+        </select>
+        <div>
+            <input type="button" value="Request Pickup" id="GetRoute" name="GetRoute" onclick="GetRoute()" />
+        </div>
+    </div>
+    <br />
+    <div>
+        <div id="dvDistance">
+        </div>
+    </div>
+</div>
+
+<div id="dvMap" style="min-height:500px"></div>
+
+<div>
+
+</div>
+
+@section scripts{
+
+    <!--ENSURE YOU CHANGE TO YOUR OWN API KEY HERE !!! -->
+    <script src="~/Content/Temp/js.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDp3VflCPmJakef2jt0FpOb1UTTgUHjVp4" type="text/javascript"></script>
+
+    <!-- code for example 1 -->
+    <script>
+
+
+        var source, destination;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+
+        // initialise the location of the map on Chichester in England (ref lat and lng)
+        var map = new google.maps.Map(document.getElementById('dvMap'), {
+            center: { lat: -29.856628, lng: 31.036852},
+            zoom: 13,
+            mapTypeId: 'roadmap'
+        });
+
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('Collection'));
+            new google.maps.places.SearchBox(document.getElementById('Dropoff'));
+
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+        });
+
+        function GetRoute()
+        {
+
+            directionsDisplay.setMap(map);
+
+            source = document.getElementById("Collection").value;
+            destination = document.getElementById("Dropoff").value;
+            //var waypts = [];
+            //var checkboxArray = document.getElementById('waypoints');
+
+            //for (var i = 0; i < checkboxArray.length; i++) {
+            //    if (checkboxArray.options[i].selected == true) {
+            //        waypts.push({
+            //            location: checkboxArray[i].value,
+            //            stopover: true
+            //        });
+
+            var request = {
+                origin: source,
+                destination: destination,
+               // waypoints: waypts,
+               // optimizeWaypoints: true,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.value;
+                    var duration = response.rows[0].elements[0].duration.value;
+                    var dvDistance = document.getElementById("dvDistance");
+
+                    duration = parseFloat(duration / 60).toFixed(2);
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                    dvDistance.innerHTML += "Time:" + duration + " min";
+                    document.getElementById("testtext").value = distance
+
+                    data = JSON.stringify({
+                        distance: distance,
+                        'source': source,
+                        'finacharger':0,
+                        'destination':"Coastlands Durban Pty Ltd, Doctor Pixley Kaseme Street, Durban, South Africa"
+                    });
+
+                    $.ajax({
+                        url: "http://localhost:49704/FreeQuotes1/Details",
+                        method: "POST",
+                        data: data,
+                        success: function (data) {
+                            alert(data)
+                        },
+                        contentType:'application/json'
+                    });
+
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+        }
+        function getTotal()
+        {
+            var size = document.getElementById('filling').value
+            var testtext = document.getElementById('testtext').value
+            var rate = 35;
+            var amount = size * rate * testtext;
+            var VAT = 15;
+            var amt = amount * VAT / 100;
+            var Finalamt = amount + amt;
+            var display = document.getElementById('display');
+            display.innerHTML += "amount" +"<br />"+ Finalamt;
+        }
+
+    </script>
+
+    <!-- end code for example 1 -->
+}
+
+
+
+<html>
+
+
+<div>
+    Distance  : <n> <input id="testtext" type="text" name="testtext" /></n>
+</div>
+<select id="filling">
+    <option value="6">6m</option>
+    <option value="12">12m</option>
+</select>
+
+<div>
+    <input type="button" value="getTotal" id="getTotal" name="getTotal()" onclick="getTotal()" />
+</div>
+
+<div id="display">
+</div>
+
+</html>

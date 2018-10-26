@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.prices>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.rate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.six)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.twelve)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.refridge)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.rate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.six)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.twelve)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dry)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.refridge)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

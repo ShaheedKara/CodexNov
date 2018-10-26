@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "ExampleCreateView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<br />
+<div class="jumbotron">
+   <h2>Request a quote</h2>
+</div>
+    <br />
+    <br />
+    @model Sprint1AppDev3A.Models.RFQ
+ @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>RFQ</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Size, new[] { new SelectListItem { Text = "6 metres", Value = "6m" },
+               new SelectListItem { Text = "12 metres", Value = "12m" }, new SelectListItem { Text = "Break bulk", Value = "bulk" } }, "Select Size", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PUDepot, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.PUDepot, new[] { new SelectListItem { Text = "Durban Harbour", Value = "Durban Harbour" },
+               new SelectListItem { Text = "Johannesburg Depot ", Value = "Johannesburg Depot" }, new SelectListItem { Text = "Cape Town Harbour", Value = "Cape Town Harbour" } }, "Select Pick Up Zone", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PUDepot, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <fieldset>
+                <legend>Billing Address:</legend>
+                <div>
+                    <label for="billing_name">
+                        <span class="visuallyhidden"> </span>Name:
+                    </label><br>
+                    <input type="text" name="billing_name" id="billing_name">
+                </div>
+                <div>
+                    <label for="billing_street">Cell Number:</label><br>
+                    <input type="text" name="billing_street" id="billing_street">
+                </div>
+                <div>
+                    <label for="billing_street">Street:</label><br>
+                    <input type="text" name="billing_street" id="billing_street">
+                </div>
+                <div>
+                    <label for="billing_street">Number:</label><br>
+                    <input type="text" name="billing_street" id="billing_street">
+                </div>
+                @Html.LabelFor(model => model.DelCity, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.DelCity, new[] { new SelectListItem { Text ="Durban", Value = "Durban" },
+               new SelectListItem { Text = "Cape Town", Value = "Cape Town" }, new SelectListItem { Text = "Johannesburg", Value = "Johannesburg" } }
+           , "Select Size", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DelCity, "", new { @class = "text-danger" })
+                </div>
+                <div>
+                    <label for="billing_street">ZIP Code:</label><br>
+                    <input type="text" name="billing_street" id="billing_street">
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+                
+                @Html.LabelFor(model => model.Instruct, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <<div class="col-md-10">
+                        @Html.DropDownListFor(model => model.Instruct, new[] { new SelectListItem { Text = "None", Value = "None" }, new SelectListItem { Text = "Abnormal", Value = "Abnormal" }, new SelectListItem { Text = "Fragile", Value = "Fragile" }, new SelectListItem { Text = "Harzardous Goods", Value = "Harzardous Goods" }, new SelectListItem { Text = "Perishables", Value = "Fragile" } }, "Select Type", new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Instruct, "", new { @class = "text-danger" })
+                    </div>
+            </div>
+
+            <div class="form-group">
+                
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+

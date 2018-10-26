@@ -1,0 +1,120 @@
+﻿@model Sprint1AppDev3A.Models.RFQ
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this? </h3>
+    <div>
+        <h4>RFQ</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Size)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PUDepot)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PUDepot)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.SysDate)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.SysDate)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DelStreetNum)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DelStreetNum)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DelStreetName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DelStreetName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DelArea)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DelArea)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DelCity)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DelCity)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DelCode)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DelCode)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Instruct)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Instruct)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.price)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

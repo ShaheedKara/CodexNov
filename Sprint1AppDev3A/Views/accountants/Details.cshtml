@@ -1,0 +1,82 @@
+﻿@model Sprint1AppDev3A.Models.accountant
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>accountant</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Insurance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insurance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobileCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobileCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telephoneCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telephoneCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.electricity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.electricity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.officeSupplies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.officeSupplies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sanitarySupplies)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sanitarySupplies)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.month)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.month)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

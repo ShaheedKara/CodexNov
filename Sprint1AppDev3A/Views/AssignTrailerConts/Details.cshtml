@@ -1,0 +1,42 @@
+﻿@model Sprint1AppDev3A.Models.AssignTrailerCont
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AssignTrailerCont</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingIds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingIds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContainerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContainerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrailerId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrailerId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AssignId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

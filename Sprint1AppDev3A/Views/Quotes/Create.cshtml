@@ -1,0 +1,238 @@
+﻿@model Sprint1AppDev3A.Models.Quotes
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dist = 0;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+
+            <p>
+                REQUEST A PICKUP
+            </p>
+
+            <div>
+                <div>
+                    Travel To : <input id="travelto" type="text" name="name" />
+                    <input id="travelfrom" type="text" name="name" value="Coastlands Durban Pty Ltd, Doctor Pixley Kaseme Street, Durban, South Africa" readonly hidden />
+                    <br /><br><br />
+                    @*<b>Depots:  </b> <br>
+
+                        <select multiple id="waypoints">
+                            <option value="Umbilo, durban">Umbilo</option>
+                            <option value="phoenix, durban">Phoenix</option>
+
+                        </select>*@
+
+                    <div>
+                        <input type="button" value="Request Pickup" id="GetRoute" name="GetRoute" onclick="GetRoute()" />
+                    </div>
+                </div>
+                <br />
+                <div>
+                    <div id="dvDistance">
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="dvMap" style="min-height:500px"></div>
+
+        </div>
+    </div>
+    <div>
+
+    </div>
+
+    @section scripts{
+
+        <!--ENSURE YOU CHANGE TO YOUR OWN API KEY HERE !!! -->
+        <script src="~/Content/Temp/js.js" type="text/javascript"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDp3VflCPmJakef2jt0FpOb1UTTgUHjVp4" type="text/javascript"></script>
+
+        <!-- code for example 1 -->
+        <script>
+
+
+        var source, destination;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+
+        // initialise the location of the map on Chichester in England (ref lat and lng)
+        var map = new google.maps.Map(document.getElementById('dvMap'), {
+            center: { lat: -29.856628, lng: 31.036852},
+            zoom: 13,
+            mapTypeId: 'roadmap'
+        });
+
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('travelfrom'));
+            new google.maps.places.SearchBox(document.getElementById('travelto'));
+
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+        });
+
+        function GetRoute()
+        {
+
+            directionsDisplay.setMap(map);
+
+            source = document.getElementById("travelfrom").value;
+            destination = document.getElementById("travelto").value;
+            //var waypts = [];
+            //var checkboxArray = document.getElementById('waypoints');
+
+            //for (var i = 0; i < checkboxArray.length; i++) {
+            //    if (checkboxArray.options[i].selected == true) {
+            //        waypts.push({
+            //            location: checkboxArray[i].value,
+            //            stopover: true
+            //        });
+
+            var request = {
+                origin: source,
+                destination: destination,
+               // waypoints: waypts,
+               // optimizeWaypoints: true,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.value;
+                    var dvDistance = document.getElementById("dvDistance");
+
+                    duration = parseFloat(duration / 60).toFixed(2);
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                    dvDistance.innerHTML += "Time:" + duration + " min";
+                    document.getElementById("testtext").value = distance
+
+                    data = JSON.stringify({
+                        distance: distance,
+                        'source': source,
+                        'finacharger':0,
+                        'destination':"Coastlands Durban Pty Ltd, Doctor Pixley Kaseme Street, Durban, South Africa"
+                    });
+
+                    $.ajax({
+                        url: "http://localhost:49704/Quotes/Index",
+                        method: "POST",
+                        data: data,
+                        success: function (data) {
+                            alert(data)
+                        },
+                        contentType:'application/json'
+                    });
+
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+        }
+
+        </script>
+
+        <!-- end code for example 1 -->
+    }
+
+                             @*<End off the maps></End>*@
+
+    @using (Html.BeginForm()) 
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Quotes</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.tWage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.tWage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.tWage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TollFees, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TollFees, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TollFees, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PettyCash, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PettyCash, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PettyCash, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FuelPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FuelPrice, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FuelPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+          @**<div class="form-group">
+                @Html.LabelFor(model => model.Texpenses, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Texpenses, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Texpenses, "", new { @class = "text-danger" })
+                </div>*@
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.QuoteRequestNo, "QuoteRequestNo", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("QuoteRequestNo", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.QuoteRequestNo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+            <div>
+                <input id="testtext" type="text" name="testtext" />
+            </div>
+
+    }
+    <br/>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    </body>
+    
+    </html>

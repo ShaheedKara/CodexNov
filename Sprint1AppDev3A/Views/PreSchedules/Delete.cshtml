@@ -1,0 +1,104 @@
+﻿@model Sprint1AppDev3A.Models.PreSchedule
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PreSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Resources.statusResource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resources.statusResource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContainerSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContainerSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pickupLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pickupLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dropoffLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dropoffLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.transportType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.transportType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.start)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.start)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.end)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.end)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.transit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.transit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Booked)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Booked)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

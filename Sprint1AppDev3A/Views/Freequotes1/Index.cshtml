@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.Freequote>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConsumerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.weight)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollectionDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.deliveryDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contactCell)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.contactwork)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.testtext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.two)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Collection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dropoff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.final)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConsumerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.weight)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollectionDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.deliveryDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contactCell)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.contactwork)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.testtext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.two)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Collection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dropoff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.finna)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.freeQuote }) |
+            @Html.ActionLink("Details", "Details", new { id=item.freeQuote }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.freeQuote })
+        </td>
+    </tr>
+}
+
+</table>

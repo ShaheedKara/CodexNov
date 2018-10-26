@@ -1,0 +1,93 @@
+﻿@model Sprint1AppDev3A.Models.Quotes
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Quotes</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RFQs.Size)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.RFQs.Size)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tWage)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tWage)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.TollFees)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.TollFees)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PettyCash)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PettyCash)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FuelPrice)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FuelPrice)
+            </dd>
+    
+            @*<dt>
+                @Html.DisplayNameFor(model => model.Texpenses)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Texpenses)
+            </dd>*@
+
+            @*  *@
+            <dt>
+                @Html.DisplayNameFor(model => model.testtext)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.testtext)
+            </dd>
+
+            @*  *@
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.finalamt)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.finalamt)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.quoteNo }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

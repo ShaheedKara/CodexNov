@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.Vm>
+
+@{
+    ViewBag.Title = "vm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Send Quotes</h2>
+<p>@Html.ActionLink("Edit Expenses", "Edit", "Quotes")</p>
+<table class="table">
+    <tr>
+        <th>
+            Email
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Instructions
+        </th>
+        <th>
+            Final Price
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deladdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endAmt)
+            </td>
+            <td>
+                @Html.ActionLink("Send Quote", "Edit", new { id = item.QuoteRequestNo })
+
+
+            </td>
+        </tr>
+    }
+
+</table>

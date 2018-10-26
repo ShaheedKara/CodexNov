@@ -1,0 +1,95 @@
+﻿@model Sprint1AppDev3A.Models.Freequote
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Freequote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ConsumerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConsumerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CollectionDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollectionDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.deliveryDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.deliveryDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactCell)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactCell)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactwork)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactwork)
+        </dd>
+
+      
+
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.finna)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.finna)
+        </dd>
+
+    </dl>
+</div>
+@*<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.freeQuote }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>*@

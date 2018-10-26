@@ -1,0 +1,364 @@
+﻿@model Sprint1AppDev3A.Models.NewBooking
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<div class="jumbotron">
+
+    @*<input id="Dropoff" type="text" name="name" value="Coastlands Durban Pty Ltd, Doctor Pixley Kaseme Street, Durban, South Africa" readonly hidden />*@
+    <br /><br><br />
+
+
+
+    @*<select multiple id="Collection">
+        <option value="53 ettrick road bluff">bluff</option>
+        <option value="phoenix, durban">Phoenix</option>
+        </select>*@
+
+    @*</select>
+        <div>
+            Travel from : <input id="Collection" type="text" name="name" />
+        </div>*@
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Collection, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("Collection", new List<SelectListItem>
+                    {
+                    new SelectListItem {Value = "Shipping & General Transport Services Pty Ltd, 61 Grunter Gully St, Bayhead, Durban", Text = "Shipping & General"},
+                    new SelectListItem {Value = "Oilco Durban, 45 Leeds Rd, Umbilo Industrial, Durban, 4075", Text = "Oilco"},
+                    new SelectListItem {Value = "Durban Deliveries, 72 Magwaza Maphalala St, Congela, Durban, 4001", Text = "Durban Deliveries"},
+                    new SelectListItem {Value = "IMPERIAL LOGISTICS, 01 Davey Rd, Maydon Wharf, Durban, 2934", Text = "Imperial Logistics"},
+                    new SelectListItem {Value = "UNITRANS FREIGHT & LOGISTICS, 144 Umhlatuzana Rd, Sea View, Durban, 4094", Text = "Unitrans"},
+
+
+                                }, "Select pick-up Depot", new {@class="form-control" })
+            @Html.ValidationMessageFor(model => model.Collection, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div>
+        Travel to : <input id="Dropoff" class="form-control" type="text" name="name" />
+    </div>
+
+
+    <div>
+        <input type="button" value="Request Pickup" id="GetRoute" name="GetRoute" onclick="GetRoute()" />
+    </div>
+</div>
+<br />
+<div>
+    <div id="dvDistance">
+    </div>
+</div>
+
+
+
+<div id="dvMap" style="min-height:200px"></div>
+
+<div class="jumbotron">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Booking</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.pickupdate, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.pickupdate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.pickupdate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.clientname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.clientname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.clientname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.cellnum, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.cellnum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.cellnum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ConNum, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ConNum, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ConNum, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ConType, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("ConType", new List<SelectListItem>
+                    {
+                    new SelectListItem {Value = "Refrigderated ISO", Text = "Refrigderated ISO"},
+                    new SelectListItem {Value = "Tank", Text = "Tank"},
+                    new SelectListItem {Value = "Dry Container", Text = "Dry Container"},
+
+
+
+                    }, "Select Container Type Required:",new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ConType, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Size, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Size", new List<SelectListItem>
+                    {
+                    new SelectListItem {Value = "6m", Text = "6m"},
+                   new SelectListItem {Value = "12m", Text = "12m"},
+
+
+
+                   }, "Select Size:", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Size, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.specInstruct, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("specInstruct", new List<SelectListItem>
+                    {
+                    new SelectListItem {Value = "Fragile", Text = "Fragile"},
+                    new SelectListItem {Value = "Hazardous", Text = "Hazardous"},
+                    new SelectListItem {Value = "NONE", Text = "NONE"},
+                    new SelectListItem {Value = "Perishables", Text = "Perishables"},
+
+
+                                }, "Select Special Instruction:", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.specInstruct, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.testtext, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.testtext, "testtext", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.testtext, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+            <div>
+                <input id="testtext" type="text" name="testtext" readonly hidden/>
+            </div>
+
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.Collection, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Collection, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Collection, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Dropoff, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Dropoff, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Dropoff, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.priorty, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.priorty, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.priorty, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group">
+        @Html.LabelFor(model => model.est, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.est, "est", new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.est, "", new { @class = "text-danger" })
+        </div>
+    </div>*@
+            <div>
+               <input id="est" type="text" name="est" readonly hidden/>
+            </div>
+
+            @*<div class="form-group">
+                    @Html.LabelFor(model => model.estTime, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.estTime, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.estTime, "", new { @class = "text-danger" })
+                    </div>
+                </div>*@
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.news, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.news, "news", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.news, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div>
+                <input id="news" type="text" name="news"readonly hidden />
+            </div>
+
+            @*<div class="form-group">
+                @Html.LabelFor(model => model.newss, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.newss, "newss", new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.newss, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+            <div>
+                <input id="newss" type="text" name="newss" readonly hidden/>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+ 
+</div>
+
+@section scripts{
+
+    <!--ENSURE YOU CHANGE TO YOUR OWN API KEY HERE !!! -->
+    <script src="~/Content/Temp/js.js" type="text/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDp3VflCPmJakef2jt0FpOb1UTTgUHjVp4" type="text/javascript"></script>
+
+    <!-- code for example 1 -->
+    <script>
+
+
+        var source, destination;
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+
+        // initialise the location of the map on Chichester in England (ref lat and lng)
+        var map = new google.maps.Map(document.getElementById('dvMap'), {
+            center: { lat: -29.856628, lng: 31.036852},
+            zoom: 13,
+            mapTypeId: 'roadmap'
+        });
+
+        google.maps.event.addDomListener(window, 'load', function () {
+            new google.maps.places.SearchBox(document.getElementById('Collection'));
+            new google.maps.places.SearchBox(document.getElementById('Dropoff'));
+
+            directionsDisplay = new google.maps.DirectionsRenderer({ 'draggable': true });
+        });
+
+        function GetRoute()
+        {
+
+            directionsDisplay.setMap(map);
+
+            source = document.getElementById("Collection").value;
+            destination = document.getElementById("Dropoff").value;
+
+            //var waypts = [];
+            //var checkboxArray = document.getElementById('waypoints');
+
+            //for (var i = 0; i < checkboxArray.length; i++) {
+            //    if (checkboxArray.options[i].selected == true) {
+            //        waypts.push({
+            //            location: checkboxArray[i].value,
+            //            stopover: true
+            //        });
+
+            var request = {
+                origin: source,
+                destination: destination,
+               // waypoints: waypts,
+               // optimizeWaypoints: true,
+                travelMode: google.maps.TravelMode.DRIVING
+            };
+
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+            //*********DISTANCE AND DURATION**********************//
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix({
+                origins: [source],
+                destinations: [destination],
+                travelMode: google.maps.TravelMode.DRIVING,
+                unitSystem: google.maps.UnitSystem.METRIC,
+                avoidHighways: false,
+                avoidTolls: false
+            }, function (response, status) {
+
+                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+                    var distance = response.rows[0].elements[0].distance.text;
+                    var duration = response.rows[0].elements[0].duration.value;
+                    var dvDistance = document.getElementById("dvDistance");
+
+                    duration = parseFloat(duration / 60).toFixed(2);
+                    dvDistance.innerHTML = "";
+                    dvDistance.innerHTML += "Distance: " + distance + "<br />";
+                    dvDistance.innerHTML += "Time:" + duration + " min";
+                    document.getElementById("testtext").value = distance
+
+                    document.getElementById("news").value = source
+                    document.getElementById("newss").value = destination
+                    document.getElementById("est").value = duration
+
+                    data = JSON.stringify({
+                        distance: distance,
+                        'source': source,
+                        'finacharger':0,
+                        'destination':"Coastlands Durban Pty Ltd, Doctor Pixley Kaseme Street, Durban, South Africa"
+                    });
+
+                    $.ajax({
+                        url: "http://localhost:49704/Bookings/Create",
+                        method: "POST",
+                        data: data,
+                        success: function (data) {
+                            alert(data)
+                        },
+                        contentType:'application/json'
+                    });
+
+                } else {
+                    alert("Unable to find the distance via road.");
+                }
+            });
+        }
+
+    </script>
+
+    }
+

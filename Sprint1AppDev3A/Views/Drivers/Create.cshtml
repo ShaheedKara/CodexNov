@@ -1,0 +1,104 @@
+﻿@model Sprint1AppDev3A.Models.Driver
+
+@{
+    ViewBag.Title = "Create";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Driver</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DriverFullName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DriverFullName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DriverFullName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.contactNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.contactNumber, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.contactNumber, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DriAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.DriAvailable)
+                @Html.ValidationMessageFor(model => model.DriAvailable, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/fontawesome-all.css" rel="stylesheet">
+<link href="~/WebTemp/css/style.css" rel="stylesheet" />
+<!--// Style-sheets -->
+<!--web-fonts-->
+<link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800" rel="stylesheet">
+<section class="w3-agile-faculty-grid3 py-md-5">
+    <div class="container py-4 mt-2">
+        <h3 class="tittle text-center mb-3">Welcome to Ocean Land Logistics</h3>
+        <p class="tit text-center mx-auto">Desc goes here</p>
+        <div class="row fac pt-4 mt-md-5">
+            <div class="col-md-4 w3-faculty-services1 text-center">
+                <i class="fas fa-user" aria-hidden="true"></i>
+                <h3 class="mt-3">Services</h3>
+                <p class="mt-3">Add Something here</p>
+            </div>
+            <div class="col-md-4 w3-faculty-services2 text-center">
+                <i class="fas fa-clock" aria-hidden="true"></i>
+                <h3 class="mt-3">24 Hours Work</h3>
+                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue pretium placerat.  </p>
+            </div>
+            <div class="col-md-4 w3-faculty-services3 text-center">
+                <i class="fas fa-cog" aria-hidden="true"></i>
+                <h3 class="mt-3">Duties Shift </h3>
+                <p class="mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In congue pretium placerat. </p>
+            </div>
+        </div>
+    </div>
+</section>
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")

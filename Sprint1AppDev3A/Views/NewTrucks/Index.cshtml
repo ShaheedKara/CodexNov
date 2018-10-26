@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.NewTruck>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.make)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.model)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.vin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.reg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.insurance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.license)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.make)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.model)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.vin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.reg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.insurance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.license)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Capacity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TruckId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TruckId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TruckId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,44 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, 
+        new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><b>
+    @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" , @class = "btn btn-outline-success my-2 my-sm-0" })
+</b>
+        </li>
+        <li>
+            @*<i class="glyphicon glyphicon-log-out"
+               style="font-size:19px;
+                       color:gold;
+                       text-shadow:2px 2px 4px #000000;">
+            </i>*@
+        <a class= "btn btn-outline-success my-2 my-sm-0" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            <i class="glyphicon glyphicon-registration-mark"
+               style="font-size:19px;
+                       color:gold;
+                       text-shadow:2px 2px 4px #000000;">
+            </i>
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-outline-success my-2 my-sm-0" })</li>
+
+
+        <li>
+                <i class="glyphicon glyphicon-log-in"
+                   style="font-size:19px;
+                       color:gold;
+                       text-shadow:2px 2px 4px #000000;">
+                </i>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink",@class= "btn btn-outline-success my-2 my-sm-0" })</li>
+    </ul>
+}

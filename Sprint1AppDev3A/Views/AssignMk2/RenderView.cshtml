@@ -1,0 +1,23 @@
+﻿
+@{
+//Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RenderView</title>
+</head>
+<body>
+    <div> 
+        @{Html.RenderAction("BookingIndex");}
+        </div>
+<div>
+    </div>  
+    <div class="jumbotron">
+        @{Html.RenderAction("AssignIndex");}
+    </div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿@model Sprint1AppDev3A.Models.Resource
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Resource</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NewDrivers.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewDrivers.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewTrailer.reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewTrailer.reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewTrucks.make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewTrucks.make)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusResource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusResource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrailerSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrailerSize)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

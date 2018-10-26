@@ -1,0 +1,72 @@
+﻿@model Sprint1AppDev3A.Models.DeliveryNote
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DeliveryNote</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.dateCreated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateCreated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clientname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clientname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.specInstruct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.specInstruct)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dropoff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dropoff)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

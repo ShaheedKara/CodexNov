@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.RFQ>
+
+@{
+    ViewBag.Title = "AgentIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Incoming Requests</h2>
+<p>
+    @using (Html.BeginForm("AgentIndex", "RFQs", FormMethod.Post))
+    {
+        @Html.Label("Search For a Email :   ")    @Html.TextBox("s")
+        <input type="submit" value="Search" />
+    }
+</p>
+
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.QuoteRequestNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.SysDate)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.DelStreetNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelStreetName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelArea)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.DelCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DelCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PUDepot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Instruct)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>*@
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.QuoteRequestNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.DelStreetNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelStreetName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelArea)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.SysDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DelCode)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.PUDepot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Instruct)
+        </td>
+        <td>
+          
+            @Html.ActionLink("Details", "Details", new { id=item.QuoteRequestNo }) 
+          
+        </td>
+    </tr>
+}
+
+</table>

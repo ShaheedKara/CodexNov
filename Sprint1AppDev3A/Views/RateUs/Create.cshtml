@@ -1,0 +1,60 @@
+﻿@model Sprint1AppDev3A.Models.RateUs
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<br />
+<br />
+<center>
+    <article>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <br />
+            <br />
+            <br />
+            <br />
+            <div>
+                <h4><b>Rate our Services!</b></h4>
+                <hr />
+
+
+                <div class="form-group">
+                    <div>
+                        <form action="" method="post">
+                            <h4>Just click on the icon which you would like to rate us.</h4>
+                            <br />
+                            <h4>1 Star = Poor</h4>
+                            <h4>2 Stars = Bad</h4>
+                            <h4>3 Stars = Satisfactory</h4>
+                            <h4>4 Stars = Good</h4>
+                            <h4>5 Stars = Excellent</h4>
+                            <br />
+                            <button title="Poor" name="one" value="one"><img src="~/Rating/1Star.jpg" width="80" height="80" /></button>
+                            <button title="Bad" name="two" value="two"><img src="~/Rating/2Star.png" width="80" height="80" /></button>
+                            <button title="Satisfactory" name="three" value="three"><img src="~/Rating/3Star.png" width="80" height="80" /></button>
+                            <button title="Good" name="four" value="four"><img src="~/Rating/4Star.png" width="80" height="80" /></button>
+                            <button title="Excellent" name="five" value="five"><img src="~/Rating/5Star.png" width="80" height="80" /></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+        <br />
+
+        <br />
+        <br />
+
+        <div>
+            <a href="@Url.Action("Index","Home")">
+                <img src="@Url.Content("~/images/back.png")" alt="Back" title="Back" width="40" height="40" />
+            </a>
+        </div>
+    </article>
+</center>
+
+
+

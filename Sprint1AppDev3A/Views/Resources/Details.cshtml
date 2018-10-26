@@ -1,0 +1,58 @@
+﻿@model Sprint1AppDev3A.Models.Resource
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Resource</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NewDrivers.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewDrivers.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewTrailer.reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewTrailer.reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewTrucks.make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewTrucks.make)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusResource)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusResource)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrailerSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrailerSize)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

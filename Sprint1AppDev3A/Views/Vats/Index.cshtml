@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.Vat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.exempt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.standardRated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zeroRated)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.exempt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.standardRated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zeroRated)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

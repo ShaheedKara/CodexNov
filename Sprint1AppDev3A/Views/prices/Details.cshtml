@@ -1,0 +1,66 @@
+﻿@model Sprint1AppDev3A.Models.prices
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>prices</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.rate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.six)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.six)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.twelve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.twelve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tank)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tank)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.refridge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.refridge)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

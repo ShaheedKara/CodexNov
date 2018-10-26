@@ -1,0 +1,170 @@
+﻿@{
+    ViewBag.Title = "WELCOME TO OCEAN LAND LOGISTICS";
+   // Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@Styles.Render("~/Content/font-awesome.css")
+
+ 
+
+
+
+
+
+<header id="head">
+    <div class="container">
+        <div class="row">
+            <marquee>   <h1><strong>WELCOME TO OCEAN LAND LOGISTICS</strong></h1></marquee>
+        </div>
+    </div>
+</header>
+
+<div>
+    <p style="float: left;"><img src="~/IMG/Bigimages.png" height="200px" width="250px" border="1px"></p>
+
+</div>
+
+<div class="jumbotron">
+    <h1>OCEANLAND LOGISITCS</h1>
+    <p class="lead"
+
+</div>
+
+@*<div class="jumbotron">
+    <br><br />*@
+
+
+<!-- /Header -->
+<!-- Intro -->
+<div class="container text-center">
+    <br> <br>
+    @*<h2 class="thin"><font color="black"><strong>OCEAN LAND LOGISTICS</strong></h2></font>*@
+    <p class="text-muted">
+        <font color="black">
+            Our company is best way to transport goods over short to medium distances.</br>
+            It is commonly used for transportation between domestic locations or to</br>
+            other destinations within South Africa.
+        </font>
+    </p>
+</div>
+
+@*SLIDESHOW*@
+
+<div class="w3-content w3-section" style="max-width:1000px; padding-left:220px">
+
+    <img class="mySlides" src="~/IMG/man.PNG" style="width:750px; height:400px">
+    <img class="mySlides" src="~/IMG/volvo.jpg" style="width:750px; height:400px">
+    <img class="mySlides" src="~/IMG/trailer.PNG" style="width:750px; height:400px">
+    @*<img class="mySlides" src="~/IMG/slide8.jpg" style="width:750px; height:400px">
+        <img class="mySlides" src="~/IMG/slide9.jpg" style="width:750px; height:400px">*@
+
+
+
+</div>
+
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 3000); // Change image 4000ms
+
+    }
+</script>
+
+<div class="animate">
+
+</div>
+
+
+
+<!-- /Intro-->
+<!-- Highlights - jumbotron -->
+<div class="highlight">
+    <div class="container">
+
+        <h2 class="text-center thin" font:900;"><font color="black"><strong>Reasons To Use Our Company?</strong></h2></font>
+
+        <div class="row">
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="h-caption"><h4> <font color="gold"><i class="fa fa-cogs fa-5"></i> Transporting Benefits</h4></div></font>
+                <div class="h-body text-center">
+                    <p>
+                        <font color="black">
+                            <h5>
+                                Best way to transport goods
+                                over short to medium distances
+                        </font></h5>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="h-caption"><h4> <font color="gold"><i class="fa fa-flash fa-5"></i> Prompt Delivery</h4></div></font>
+                <div class="h-body text-center">
+                    <p><font color="black"> <h5>Always Delivering on Time </h5></p> </font>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="h-caption"><h4> <font color="gold"><i class="fa fa-heart fa-5"></i> Our Beliefs:</h4></div></font>
+                <div class="h-body text-center">
+                    <p>
+                        <font color="black">
+                            <h5>
+                                All accidents can be prevented.
+                                Every job can be done safely.
+                                Everyone has a duty to work safely, be health conscious
+                                and to encourage others to do likewise.
+                            </h5>
+                        </font>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 highlight">
+                <div class="h-caption">
+                    <h4>
+                        <font color="gold">
+                            <i class="fa fa-handshake-o fa-5">
+
+                            </i> We Are Committed To:
+                    </h4>
+                </div></font>
+                <div class="h-body text-center">
+                    <p>
+                        <font color="black">
+                            <h5>
+                                Protecting the health and safety
+                                of our employees.
+                                Protecting the health and safety of all
+                                affected by our business activities.
+                                Protecting the environment.
+                            </h5>
+
+                        </font>
+                    </p>
+                </div>
+            </div>
+        </div> <!-- /row  -->
+
+    </div>
+</div>
+<!-- /Highlights -->
+
+<style>
+    .jumbotron {
+        background: url("volvo.jpg") fixed center no-repeat;
+        background-size: auto;
+        background-color: #3b758e;
+        color: #fff;
+        padding: 50px 25px;
+        font-family: Montserrat, sans-serif;
+    }
+</style>
+
+    </div>

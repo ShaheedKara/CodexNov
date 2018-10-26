@@ -1,0 +1,239 @@
+﻿@model Sprint1AppDev3A.Models.AssignMk2
+
+@{
+//Layout = null;
+}
+
+<!DOCTYPE html>
+
+<style>
+    p.double {
+        outline-style: double;
+    }
+
+    p.namess {
+        outline-width: thin;
+    }
+
+    p.name {
+        border: 1px solid black;
+        padding: 40px;
+    }
+
+    span {
+        font-weight: normal;
+    }
+
+    .signature {
+        border: 0;
+        border-bottom: 1px solid #000;
+    }
+</style>
+
+
+<form class="form" style="max-width: none; width: 1005px;">
+
+
+    <center>
+        <img src="~/IMG/logo.png" alt="Paris" width="150" height="150">
+    </center>
+    <center>
+        <h2 style="color: #000000">OCEAN LAND LOGISTICS</h2>
+    </center>
+    <center>
+        <p class="double">
+            DELIVERY NOTE
+    </center>
+
+
+
+    <html>
+
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Print Delivery Note</title>
+    </head>
+    <body>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                Delivery To:
+
+                <dt>
+                    <p class="name">
+                        <u>  @Html.DisplayNameFor(model => model.NewBookings.clientname) :</u> </br><span> @Html.DisplayFor(model => model.NewBookings.clientname)</span>
+                        </br>
+                        <u> @Html.DisplayNameFor(model => model.NewBookings.Dropoff) :</u> </br><span>@Html.DisplayFor(model => model.NewBookings.Dropoff)</span>
+
+                </dt>
+
+
+                <hr />
+                <br />
+                <br />
+                <br />
+
+                Description:
+
+                <dt>
+                    <p class="name">
+                        <u>  @Html.DisplayNameFor(model => model.NewBookings.ConType) :</u> </br><span> @Html.DisplayFor(model => model.NewBookings.ConType)</span>
+                        </br>
+                        <u> @Html.DisplayNameFor(model => model.NewBookings.Size) :</u> </br><span> @Html.DisplayFor(model => model.NewBookings.Size)</span>
+                        </br>
+                        <u>  @Html.DisplayNameFor(model => model.NewBookings.specInstruct) :</u> </br><span> @Html.DisplayFor(model => model.NewBookings.specInstruct)</span>
+                </dt>
+
+                <hr />
+            </dl>
+        </div>
+
+        </br></br>
+        Recieved By:
+        </br></br>
+        <input type="text" class="signature" /> </br></br>
+        <input type="button" id="create_pdf" value="Authorised Signature">
+
+</form>
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@
+
+@using (Html.BeginForm())
+{
+
+}
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<script>
+
+    (function () {
+        var
+         form = $('.form'),
+         cache_width = form.width(),
+         a4 = [595.28, 841.89]; // for a4 size paper width and height
+
+        $('#create_pdf').on('click', function () {
+            $('body').scrollTop(0);
+            createPDF();
+        });
+        //create pdf
+        function createPDF() {
+            getCanvas().then(function (canvas) {
+                var
+                 img = canvas.toDataURL("image/png"),
+                 doc = new jsPDF({
+                     unit: 'px',
+                     format: 'a4'
+                 });
+                doc.addImage(img, 'JPEG', 20, 20);
+                doc.save('Bhavdip-html-to-pdf.pdf');
+                form.width(cache_width);
+            });
+        }
+
+        // create canvas object
+        function getCanvas() {
+            form.width((a4[0] * 1.33333) - 80).css('max-width', 'none');
+            return html2canvas(form, {
+                imageTimeout: 2000,
+                removeContainer: true
+            });
+        }
+
+    }());
+</script>
+<script>
+
+    /*
+ * jQuery helper plugin for examples and tests
+ */
+    (function ($) {
+        $.fn.html2canvas = function (options) {
+            var date = new Date(),
+            $message = null,
+            timeoutTimer = false,
+            timer = date.getTime();
+            html2canvas.logging = options && options.logging;
+            html2canvas.Preload(this[0], $.extend({
+                complete: function (images) {
+                    var queue = html2canvas.Parse(this[0], images, options),
+                    $canvas = $(html2canvas.Renderer(queue, options)),
+                    finishTime = new Date();
+
+                    $canvas.css({ position: 'absolute', left: 0, top: 0 }).appendTo(document.body);
+                    $canvas.siblings().toggle();
+
+                    $(window).click(function () {
+                        if (!$canvas.is(':visible')) {
+                            $canvas.toggle().siblings().toggle();
+                            throwMessage("Canvas Render visible");
+                        } else {
+                            $canvas.siblings().toggle();
+                            $canvas.toggle();
+                            throwMessage("Canvas Render hidden");
+                        }
+                    });
+                    throwMessage('Screenshot created in ' + ((finishTime.getTime() - timer) / 1000) + " seconds<br />", 4000);
+                }
+            }, options));
+
+            function throwMessage(msg, duration) {
+                window.clearTimeout(timeoutTimer);
+                timeoutTimer = window.setTimeout(function () {
+                    $message.fadeOut(function () {
+                        $message.remove();
+                    });
+                }, duration || 2000);
+                if ($message)
+                    $message.remove();
+                $message = $('<div ></div>').html(msg).css({
+                    margin: 0,
+                    padding: 10,
+                    background: "#000",
+                    opacity: 0.7,
+                    position: "fixed",
+                    top: 10,
+                    right: 10,
+                    fontFamily: 'Tahoma',
+                    color: '#fff',
+                    fontSize: 12,
+                    borderRadius: 12,
+                    width: 'auto',
+                    height: 'auto',
+                    textAlign: 'center',
+                    textDecoration: 'none'
+                }).hide().fadeIn().appendTo('body');
+            }
+        };
+    })(jQuery);
+
+</script>
+
+
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
+</body>
+</html>

@@ -1,0 +1,252 @@
+﻿@{   ViewBag.Title = "HelpPage";
+
+}
+
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+
+     
+
+
+    <title>Bootstrap Theme Company Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font: 400 15px Lato, sans-serif;
+            line-height: 1.8;
+            color: #000000;
+        }
+
+        h2 {
+            font-size: 24px;
+            text-transform: uppercase;
+            color: #303030;
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            color: #303030;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .jumbotron {
+            background: url("volvo.jpg") fixed center no-repeat;
+            background-size: auto;
+            background-color: #3b758e;
+            color: #fff;
+            padding: 50px 25px;
+            font-family: Montserrat, sans-serif;
+        }
+
+
+        .container-fluid {
+            padding: 50px 20px;
+        }
+
+        .bg {
+            background-color: #ffd800;
+        }
+
+        .logo-small {
+            color: #3b758e;
+            font-size: 50px;
+        }
+
+        .logo {
+            color: #3b758e;
+            font-size: 200px;
+        }
+
+        .thumbnail {
+            padding: 0 0 15px 0;
+            border: none;
+            border-radius: 0;
+        }
+
+            .thumbnail img {
+                width: 100%;
+                height: 100%;
+                margin-bottom: 10px;
+            }
+
+        .carousel-control.right, .carousel-control.left {
+            background-image: url(volvo.jpg);
+            color: #f4511e;
+        }
+
+        .carousel-indicators li {
+            border-color: #f4511e;
+        }
+
+            .carousel-indicators li.active {
+                background-color: #3b758e;
+            }
+
+        .item h4 {
+            font-size: 19px;
+            line-height: 1.375em;
+            font-weight: 400;
+            font-style: italic;
+            margin: 70px 0;
+        }
+
+        .item span {
+            font-style: normal;
+        }
+
+        .panel {
+            border: 1px solid #3b758e;
+            border-radius: 0 !important;
+            transition: box-shadow 0.5s;
+        }
+
+            .panel:hover {
+                box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+            }
+
+        .panel-footer .btn:hover {
+            border: 1px solid #3b758e;
+            background-color: #fff !important;
+            color: #3b758e;
+        }
+
+        .panel-heading {
+            color: #fff !important;
+            background-color: #3b758e !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-top-left-radius: 0px;
+            border-top-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+        }
+
+        .panel-footer {
+            background-color: white !important;
+        }
+
+            .panel-footer h3 {
+                font-size: 32px;
+            }
+
+            .panel-footer h4 {
+                color: #aaa;
+                font-size: 14px;
+            }
+
+            .panel-footer .btn {
+                margin: 15px 0;
+                background-color: #3b758e;
+                color: #fff;
+            }
+
+        .navbar {
+            margin-bottom: 0;
+            background-color: #3b758e;
+            z-index: 9999;
+            border: 0px;
+            font-size: 16px !important;
+            line-height: 3.5 !important;
+            letter-spacing: 2px;
+            border-radius: 0px;
+            font-family: Montserrat, Arial, 'Times New Roman', Times, serif Helvetica, sans-serif;
+        }
+
+            .navbar li a, .navbar .navbar-brand {
+                color: #fff !important;
+            }
+
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: gold !important;
+            background-color: #3b758e !important;
+        }
+
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #3b758e !important;
+        }
+
+        footer .glyphicon {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #3b758e;
+        }
+
+        .slideanim {
+            visibility: visible;
+        }
+
+        .slide {
+            animation-name: slide;
+            -webkit-animation-name: slide;
+            animation-duration: 1s;
+            -webkit-animation-duration: 1s;
+            visibility: visible;
+        }
+    </style>
+</head>
+</html>
+
+<br />
+
+
+@*<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">*@
+<div>
+    <p style="float: left;"><img src="~/IMG/Bigimages.png" height="200px" width="250px" border="1px"></p>
+
+</div>
+<div class="jumbotron">
+    <h1>HELP PAGE:</h1>
+    <p class="lead"
+
+</div>
+<br> <br />
+
+
+<div class="jumbotron">
+    <p>
+        <b> How to Register to use the system? </b><br />
+        A first-time user of the system is required to register in order to use the system.<br />
+        This is done by selecting the register button and filling in their required information.<br />
+        Once the registration is done, this means that hereafter, <br />
+        they can log in as a client using the log in button. <br />
+    </p>
+</div>
+<div class="jumbotron">
+    <p>
+        <b>What can a client do after registering or logging into the system?</b> <br />
+
+        A client is then forwarded to the Request For Quotation (RFQ) page. <br />
+        Here, they are required to fill in the details for the order they are placing. <br />
+        This will then be received by an agent who will compute a Quotation based on the order.<br />
+    </p>
+</div>
+<div class="jumbotron">
+    <p>
+        <b>How can we be contacted?</b> <br />
+        Click on the Contact button to view our various communication platforms<br />
+        or our company address.
+</div>
+<div class="jumbotron">
+    <p>
+        <b>How will I receive a Quotation?</b> <br />
+        Once the Agent receives the RFQ, they will compute the quotation. <br />
+        The Quotation will then be sent to the client via Email.
+
+    </p>
+</div>
+

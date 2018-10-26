@@ -1,0 +1,67 @@
+﻿@model Sprint1AppDev3A.Models.Truck
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Truck</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TrailerSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrailerSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.make)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.make)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.vin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.vin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Available)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Available)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TruckId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<head>
+
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+
+
+    <style>
+        body {
+            background-image: url("../../IMG/volvo.jpg");
+            /*background-color: #A9A9A9;*/
+            background-size: cover;
+        }
+
+        .w3-button {
+            width: 150px;
+        }
+
+        .btn btn-default {
+            background-color: #3b758e;
+        }
+    </style>
+
+</head>
+<head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        tr:nth-child(even) {
+            background-color: #E0FFFF
+        }
+
+        tr:nth-child(odd) {
+            background-color: #E0FFFF
+        }
+
+        th {
+            background-color: #6495ED;
+            color: white;
+        }
+    </style>
+</head>
+
+<head>
+
+    <link rel="stylesheet" href="css/bootstrapOLL.css" />
+</head>
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+<style>
+    .navbar {
+    margin-bottom: 0;
+    background-color: #3b758e;
+    z-index: 9999;
+    border: 0px;
+    font-size: 16px !important;
+    line-height: 3.5 !important;
+    letter-spacing: 2px;
+    border-radius: 0px;
+    font-family: Montserrat, Arial, 'Times New Roman', Times, serif Helvetica, sans-serif;
+    }
+
+    .navbar li a, .navbar .navbar-brand {
+    color: gold !important;
+    }
+
+    .navbar-nav li a:hover, .navbar-nav li.active a {
+    color: gold !important;
+    background-color: #3b758e !important;
+    }
+
+    .navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #3b758e !important;
+    }
+
+    </style>
+
+</head>
+
+
+
+
+
+    </div>
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            @Html.ActionLink("Ocean Land Logistics", "Index", "Home", new { area = "" },
+                new { @class = "navbar-brand" })
+            <h2 class="navbar-brand brand-name">
+            </h2>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <span>
+                        <i class="glyphicon glyphicon-home"
+                           style="font-size:21px;
+                       color:gold;
+                       text-shadow:2px 2px 4px #000000;">
+                        </i>
+                        @Html.ActionLink("Home", "Index", "Home")
+
+
+                    </span>
+                </li>
+                <li>
+                    <span>
+                        <i class="glyphicon glyphicon-euro"
+                           style="font-size:21px;
+                       color:gold;
+                       text-shadow:2px 2px 4px #000000;">
+                        </i>
+                        @Html.ActionLink("freequote", "Create", "Freequotes1")
+                    </span>
+                </li>
+
+
+                </span>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bookings<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Create Booking", "Blist", "NewBookings")</a></li>
+                            <li><a href="#">@Html.ActionLink("View Bookings", "Blist", "NewBookings")</a></li>
+
+                        </ul>
+                    </li>
+                }
+                <li>
+                    <span>
+                        <i class="glyphicon glyphicon-info-sign"
+                           style="font-size:21px;
+                       color:gold;
+                       text-shadow:2px 2px 4px #000000;">
+                        </i>
+                        @Html.ActionLink("Help", "Help", "Home")
+
+
+                    </span>
+                </li>
+
+
+                @if (User.IsInRole("Administrator"))
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Admin<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Administration", "Index", "Admin")</a></li>
+                            <li><a href="#">@Html.ActionLink("Trucks", "Create", "NewTrucks")</a></li>
+                            <li><a href="#">@Html.ActionLink("Drivers", "Create", "NewDrivers")</a></li>
+                            <li><a href="#">@Html.ActionLink("Trailer", "Create", "NewTrailers")</a></li>
+                            <li><a href="#">@Html.ActionLink("Expenses", "Index", "CalAmts")</a></li>
+                            <li><a href="#">@Html.ActionLink("Vat", "Index", "Vats")</a></li>
+
+
+                        </ul>
+                    </li>
+
+                }
+                @if (User.IsInRole("Agent"))
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Agent<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Bookings", "AgentIndex", "NewBookings")</a></li>
+                            @*<li><a href="#">@Html.ActionLink("Trucks", "Index", "trucks")</a></li>
+        <li><a href="#">@Html.ActionLink("Drivers", "Index", "Drivers")</a></li>*@
+                            <li><a href="#">@Html.ActionLink("Assign Job", "Create", "AssignMK2")</a></li>
+                            @*<li><a href="#">@Html.ActionLink("On-going Jobs", "vm", "NewVm")</a></li>
+                            <li><a href="#">@Html.ActionLink("Driver Status", "AgentIndex", "DriverCheckIns")</a></li>*@
+
+
+
+                        </ul>
+                    </li>
+
+              
+                }
+                @if (User.IsInRole("Driver"))
+                {
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Driver<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Check in", "Create", "DriverCheckIns")</a></li>
+                   
+
+
+                        </ul>
+                    </li>
+                }
+                </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container body-content">
+    @RenderBody()
+    <hr />
+    <footer>
+        <p>&copy; @DateTime.Now.Year - CodeX Innovations</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+
+
+
+</html>
+

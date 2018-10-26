@@ -1,0 +1,74 @@
+﻿@model Sprint1AppDev3A.Models.drivercheckinMk2
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>drivercheckinMk2</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dateandtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dateandtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lognlat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lognlat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.testtext)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testtext)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.testtexts)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.testtexts)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.drivercheckin }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

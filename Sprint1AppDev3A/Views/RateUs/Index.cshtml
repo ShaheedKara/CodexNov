@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.RateUs>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Rate Us", "tblRates", "Create")
+</p>
+
+<table>
+    @foreach (var rate in Model)
+    {
+        if (rate.rating == 1)
+        {
+            <tr>
+                @Html.DisplayNameFor(model => model.name)
+            </tr>
+                <tr>
+                    <td>
+                        <img src="~/Rating/1Star.jpg" />
+                    </td>
+                </tr>
+        }
+        else if (rate.rating == 2)
+        {
+            <tr>
+                @Html.DisplayNameFor(model => model.name)
+            </tr>
+                <tr>
+                    <td>
+                        <img src="~/Rating/2Star.jpg" />
+                    </td>
+                </tr>
+        }
+        else if (rate.rating == 3)
+        {
+            <tr>
+                @Html.DisplayNameFor(model => model.name)
+            </tr>
+                <tr>
+                    <td>
+                        <img src="~/Rating/3Star.jpg" />
+                    </td>
+                </tr>
+        }
+        else if (rate.rating == 4)
+        {
+            <tr>
+                @Html.DisplayNameFor(model => model.name)
+            </tr>
+                <tr>
+                    <td>
+                        <img src="~/Rating/4Star.jpg" />
+                    </td>
+                </tr>
+        }
+        else if (rate.rating == 5)
+        {
+            <tr>
+                @Html.DisplayNameFor(model => model.name)
+            </tr>
+                <tr>
+                    <td>
+                        <img src="~/Rating/5Star.jpg" />
+                    </td>
+                </tr>
+        }
+
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = rate.rateId }) |
+            @Html.ActionLink("Details", "Details", new { id = rate.rateId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = rate.rateId })
+        </td>
+    }
+</table>
+
+<div>
+
+
+</div>

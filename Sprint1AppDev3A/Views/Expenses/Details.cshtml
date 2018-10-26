@@ -1,0 +1,67 @@
+﻿@model Sprint1AppDev3A.Models.Expense
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Expense</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RFQs.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RFQs.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FuelPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FuelPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Markup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Markup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Final)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Final)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuoteID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

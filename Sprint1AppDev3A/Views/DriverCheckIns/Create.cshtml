@@ -1,0 +1,65 @@
+﻿@model Sprint1AppDev3A.Models.DriverCheckIn
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>DriverCheckIn</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <a href="~/Views/DriverCheckIns/Create.cshtml">~/Views/DriverCheckIns/Create.cshtml</a>
+
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Status, new SelectList(
+                 new List<Object>
+                 {
+                      new { value = "Leaving Yard" , text = "Leaving Yard" },
+                      new { value = "Reached Depot" , text = "Reached Depot"  },
+
+                       new { value = "Loading Truck" , text = "Loading Truck" },
+                      new { value = "Leaving Depot" , text = "Leaving Depot" },
+                       new { value = "Reached Drop Off" , text = "Reached Drop Off" },
+                        new { value = "Unloading Container" , text = "Unloading Container" },
+                        new { value = "Returning to Depot" , text = "Returning to Depot" },
+                        new { value = "Dropping off Container at Depot" , text = "Dropping off Container at Depot" },
+                        new { value = "Returning to Yard" , text = "Returning to Yard" },
+                         new { value = "In Yard", text = "In Yard" }
+
+                 },
+                 "value", "text", 8))
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comment, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Comment, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+       
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

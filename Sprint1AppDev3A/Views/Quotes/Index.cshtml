@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.Quotes>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+   @{
+       ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<p>
+    @using (Html.BeginForm("Index", "Quotes", FormMethod.Post))
+    {
+        @Html.Label("Search For a City :   ")    @Html.TextBox("a")
+        <input type="submit" value="Search" />
+    }
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RFQs.Email)
+        </th>
+        <th>
+            Wages
+        </th>
+        <th>
+            Toll Fees
+        </th>
+        <th>
+            Petty Cash
+        </th>
+        <th>
+            Fuel Price
+        </th>
+        <th>
+            Expenses
+        </th>
+        <th>
+            Final Amount
+        </th>
+        <th>
+           testtext
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RFQs.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tWage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TollFees)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PettyCash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuelPrice)
+            </td>
+            <td>
+                @*@Html.DisplayFor(modelItem => item.Texpenses)
+                @item.Texpenses*@
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.finalamt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.testtext)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.quoteNo }) |
+                @Html.ActionLink("Details", "Details", new { id = item.quoteNo }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.quoteNo })
+                @Html.ActionLink("Send Final Quote", "vm", new { id = item.QuoteRequestNo })
+            </td>
+        </tr>
+    }
+
+</table>
+
+</html>

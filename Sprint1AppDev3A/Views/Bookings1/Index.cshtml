@@ -1,0 +1,153 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.Bookings>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookingIds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pickupdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clientname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cellnum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConNum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ConType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.specInstruct)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.testtext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.two)
+        </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.Distance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.final)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Collection)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dropoff)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.priority)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.est)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.news)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.newss)
+        </th>*@
+        @*<th>
+            @Html.DisplayNameFor(model => model.estimate1)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingIds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pickupdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clientname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cellnum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConNum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ConType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Size)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.specInstruct)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.testtext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.two)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.Distance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.final)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Collection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dropoff)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.priority)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.est)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.news)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.newss)
+        </td>*@
+        @*<td>
+            @Html.DisplayFor(modelItem => item.estimate1)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookingIds }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookingIds }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookingIds })
+        </td>
+    </tr>
+}
+
+</table>

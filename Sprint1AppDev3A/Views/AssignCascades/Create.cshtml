@@ -1,0 +1,162 @@
+﻿@model Sprint1AppDev3A.Models.AssignCascade
+
+
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#SizeCheck").change(function () {
+            $.get("/AssignCascades/CascadeTruck", { TrailerSelect: $("#SizeCheck").val() }, function (data) {
+                $("#TrucksID").empty();
+                $.each(data, function (index, row) {
+                    $("#TrucksID").append("<option value='" + row.TruckId + "'>" + row.reg + "</option>")
+                });
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#SizeCheck").change(function () {
+            $.get("/AssignCascades/CascadeCont", { TrailerSelect: $("#SizeCheck").val() }, function (data) {
+                $("#BookID").empty();
+                $.each(data, function (index, row) {
+                    $("#BookID").append("<option value='" + row.BookingId + "'>" + row.ContainerNum + "</option>")
+                });
+            });
+        });
+    });
+</script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>AssignCascade</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.SizeCheck, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*@Html.(model => model.SizeCheck, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.DropDownListFor(model => model.SizeCheck, new SelectList(
+             new List<Object>
+             {
+                  new { value = "6m" , text = "6m"  },
+                  new { value = "12m" , text = "12m" }
+
+             },
+             "value", "text", 2))
+            @Html.ValidationMessageFor(model => model.SizeCheck, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TrucksID, "TrucksID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("TrucksID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.TrucksID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <input type="text" name="date" id="date" readonly="readonly" size="12" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css">
+
+    <script>
+
+         //type="text/javascript">
+         //   $(document).ready(function () {
+         //       $('#dataTable').DataTable({
+         //           "ajax": {
+         //               "url": "/AssignCascade/Dates",
+         //               "type": "GET",
+         //               "datatype": "json"
+         //       },
+
+         //           "Array": [
+         //               { "data": "TrucksDatesBooked" },
+                        
+         //           ]
+         //       });
+         //   });
+        function GetDateUsingAjax()
+        {           
+            $.ajax
+                ({
+            type: 'GET',
+            url: '@Url.Action("GetDateBooked")',
+            data: { },
+            dataType: 'json',
+            success: function (data) {
+    var rows;
+    $.each(data, function (i, item) {
+        rows = item.TruckD
+    });
+    $('#tblProducts tbody').append(rows);
+ },
+            error: function (emp) {
+                alert('error');
+            }
+        });
+    }
+
+        
+
+
+        var q = '"' + rows + '"';  
+
+        var unavailableDates = [q];
+
+    function available(date) {
+    var dmy = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear();
+
+    if ($.inArray(dmy, unavailableDates) == -1) {
+    return [true, "", "Available"];
+    } else {
+    return [false, "", "unAvailable"];
+    }
+
+    }
+
+    $('#date').datepicker({ beforeShowDay: available });
+    </script>
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.BookID, "BookID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("BookID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BookID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+

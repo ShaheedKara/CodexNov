@@ -1,0 +1,50 @@
+﻿@model Sprint1AppDev3A.Models.TrailerMk2
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrailerMk2</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.reg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrailerSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrailerSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.exp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.exp)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrailerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

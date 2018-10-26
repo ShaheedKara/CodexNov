@@ -1,0 +1,332 @@
+﻿
+@{
+    ViewBag.Title = "TimeTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TimeTable</h2>
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <style>
+        body {
+            background: #ECF0F1;
+        }
+
+        .wrapper {
+            margin: 50px auto;
+            width: 1000px;
+        }
+
+        table {
+            table-layout: fixed;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 300;
+        }
+
+            table caption {
+                text-align: center;
+                font-size: 1.5em;
+                padding: 0.35em;
+            }
+
+            table tr {
+                height: 1.85em;
+            }
+
+            table td, table th {
+                text-align: center;
+                background: #FAFAFA;
+                border: solid 2px;
+                border-left: solid;
+                border-right: solid;
+            }
+
+            table th {
+                font-weight: 400;
+            }
+    </style>
+//THIS PART HANDLES THE HIGHLIGHTING
+    <script>window.onload = function () {
+
+            var all = document.getElementsByTagName("td");
+            for (var i = 0; i < all.length; i++) {
+                all[i].onclick = inputClickHandler;
+            }
+        };
+
+        function inputClickHandler(e) {
+            e = e || window.event;
+            var tdElm = e.target || e.srcElement;
+            if (tdElm.style.backgroundColor == 'rgb(255, 0, 0)') {
+                tdElm.style.backgroundColor = '#fff';
+            } else {
+                tdElm.style.backgroundColor = '#f00';
+            }
+        }
+    </script>
+
+    <div class="wrapper">
+        <table>
+            <caption>Timetable</caption>
+            <tr>
+                <th>Time</th>
+                <th>Monday</th>
+                <th>Tuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <td>1:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>2:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>3:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>4:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>5:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>6:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>7:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>8:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>9:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>10:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>11:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>12:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>13:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>14:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>15:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>16:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>17:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>18:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>19:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>20:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>21:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>22:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>23:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+            <tr>
+                <td>24:00 </td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+                <td contenteditable=""></td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+</html>
+
+

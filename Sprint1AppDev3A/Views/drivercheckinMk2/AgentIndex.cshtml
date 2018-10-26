@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.drivercheckinMk2>
+
+@{
+    ViewBag.Title = "AgentIndex";
+}
+
+<h2>AgentIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateandtime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lognlat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comment)
+        </th>
+        @*<th>*@
+            @*@Html.DisplayNameFor(model => model.testtext)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.testtexts)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateandtime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lognlat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comment)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.testtext)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.testtexts)
+        </td>*@
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.drivercheckin }) |
+            @Html.ActionLink("Details", "Details", new { id=item.drivercheckin }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.drivercheckin })*@
+        </td>
+    </tr>
+}
+
+</table>

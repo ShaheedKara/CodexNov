@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.AssignViewModel>
+
+@{
+    ViewBag.Title = "AssignedJobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AssignedJobs</h2>
+
+<p>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClientName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.refNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.colCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pickupDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.delCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dropoffDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.truckReg)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.driverName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.driverNum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClientName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.refNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.colCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.pickupDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.delCity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dropoffDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.truckReg)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.driverName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.driverNum)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AssignID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AssignID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AssignID })
+        </td>
+    </tr>
+}
+
+</table>

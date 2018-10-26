@@ -1,0 +1,139 @@
+﻿@model Sprint1AppDev3A.Models.NewNEWAssign
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>NewNEWAssign</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ContainerID.ContainerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContainerID.ContainerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SelectedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SelectedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContainerNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContainerNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContainerSize)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContainerSize)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Driver)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Driver)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Truck)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Truck)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trailer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destination)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destination)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUpTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUpTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PickUpDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PickUpDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AssignCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AssignCode)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AssignID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

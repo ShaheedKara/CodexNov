@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Sprint1AppDev3A.Models.accountant>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Insurance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mobileCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telephoneCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.electricity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.officeSupplies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sanitarySupplies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.month)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Insurance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mobileCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telephoneCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.electricity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.officeSupplies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sanitarySupplies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.month)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

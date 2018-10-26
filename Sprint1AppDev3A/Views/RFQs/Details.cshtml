@@ -1,0 +1,110 @@
+﻿@model Sprint1AppDev3A.Models.RFQ
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RFQ</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PUDepot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUDepot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SysDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SysDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelStreetNum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelStreetNum)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelStreetName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelStreetName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelArea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DelCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Instruct)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Instruct)
+        </dd>
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.price)
+            </dt>*@
+
+        @*<dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+       
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.QuoteRequestNo }) |
+    @if (User.IsInRole("Agent"))
+    {
+        
+         @Html.ActionLink("Calculate Expenses","Create", "Quotes");
+    }
+</p>
